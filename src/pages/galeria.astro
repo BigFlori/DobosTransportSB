@@ -3,7 +3,7 @@ import BaseLayout from "../layout/BaseLayout.astro";
 import PhoneSpacer from "../sections/PhoneSpacer.astro";
 import ImageModal from "../components/gallery/ImageModal.astro";
 
-const images = await import.meta.glob('../assets/gallery/*.webp', { 
+const images = await import.meta.glob('../assets/gallery/*.{webp,jpg}', { 
   eager: true,
   import: 'default'
 });
@@ -32,9 +32,14 @@ const galleryImages = Object.values(images);
   <PhoneSpacer />
 
   <section class="relative py-20 overflow-hidden">
+    <!-- Lágy fények -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="absolute top-0 left-0 w-full md:w-1/2 aspect-square bg-teal-500/10 rounded-full blur-[150px]"></div>
+    <div class="absolute bottom-0 right-0 w-full md:w-1/2 aspect-square bg-teal-500/10 rounded-full blur-[150px]"></div>
+  </div>
     <div class="container mx-auto px-4 max-w-[90%]">
         {galleryImages.length > 0 ? (
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
             {galleryImages.map((image, index) => (
               <div class="aspect-square cursor-pointer overflow-hidden rounded-lg group">
                 <img 
