@@ -1,0 +1,16 @@
+---
+interface Props {
+  text: string;
+  textClass?: string;
+}
+
+const { text, textClass } = Astro.props as Props;
+
+if (!text) {
+  throw new Error("TextGlow component requires a 'text' prop");
+}
+---
+
+<span class={`${textClass} drop-shadow-[0px_0px_22px_rgba(0,255,204,1)] text-teal-50`}>
+  {text}
+</span>

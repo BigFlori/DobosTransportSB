@@ -1,0 +1,159 @@
+---
+import NavLinkList from "./NavLinkList.astro";
+import Phone from "../../icons/Phone.astro";
+import Facebook from "../../icons/Facebook.astro";
+import Instagram from "../../icons/Instagram.astro";
+
+const instagramLink = "https://www.instagram.com/dobos_transport_building/";
+const facebookLink = "https://www.facebook.com/dobos.transport";
+---
+
+<nav class="relative z-10">
+  <div class="container p-6 mx-auto flex items-center justify-between">
+    <!-- Logo -->
+    <div class="flex items-center">
+      <span class="font-semibold text-lg">Dobos Transport</span>
+    </div>
+
+    <!-- Nav Links (Desktop és nagyobb képernyőkön, középre igazítva) -->
+    <ul class="hidden lg:flex space-x-6 mx-auto">
+      <NavLinkList />
+    </ul>
+
+    <!-- Mobile button -->
+    <div class="hidden lg:block">
+      <a
+        href="tel:+36302508322"
+        class="!text-gray-300 hover:!text-white flex items-center gap-3 py-2 px-4 sora group hover:bg-teal-500/10 rounded-full"
+      >
+        <div class="flex items-center justify-center p-2 border border-teal-300/10 bg-teal-400/10 rounded-full">
+          <Phone className="size-6 stroke-teal-500" />
+        </div>
+        <span>+36 30 250 8322</span>
+      </a>
+    </div>
+
+    <!-- Hamburger Menu (Mobilon) -->
+    <div class="lg:hidden flex items-center">
+      <button id="menu-btn" class="focus:outline-none relative w-8 h-8 flex items-center justify-center cursor-pointer z-50">
+        <!-- Hamburger svg -->
+        <svg
+          id="hamburger-icon"
+          class="transition-transform duration-300 ease-in-out"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+          <line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+          <line x1="4" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+        </svg>
+
+        <!-- Close svg -->
+        <svg
+          id="close-icon"
+          class="absolute transition-transform duration-300 ease-in-out transform scale-0 rotate-45"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+          <line x1="5" y1="19" x2="19" y2="5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobil menü -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 z-40 lg:hidden invisible"
+  >
+    <!-- Sötét háttér -->
+    <div class="absolute inset-0 bg-gray-950/80 opacity-0 transition-opacity duration-300" id="menu-backdrop"></div>
+    
+    <!-- Menü konténer -->
+    <div class="absolute inset-y-0 left-0 w-full bg-gray-950 transform -translate-x-full transition-transform duration-300 flex flex-col" id="menu-container">
+      <!-- Fejléc -->
+      <div class="bg-gray-900 p-6 flex items-end justify-between border-b border-teal-300/10">
+        <span class="font-semibold text-lg">Dobos Transport</span>
+      </div>
+
+      <!-- Navigációs linkek -->
+      <div class="flex-1 p-6 overflow-y-auto">
+        <ul class="flex flex-col space-y-4">
+          <NavLinkList />
+        </ul>
+      </div>
+
+      <!-- Social linkek -->
+      <div class="mt-auto border-t border-teal-300/10 p-6 flex justify-center space-x-4">
+        <a
+          href={facebookLink}
+          target="_blank"
+          class="hover:drop-shadow-[0px_0px_22px_rgba(0,255,204,1)] transition-all duration-300 flex items-center justify-center p-3 border border-teal-300/10 bg-teal-400/10 rounded-full"
+        >
+          <Facebook className="size-6 stroke-teal-500" />
+        </a>
+        <a
+          href={instagramLink}
+          target="_blank"
+          class="hover:drop-shadow-[0px_0px_22px_rgba(0,255,204,1)] transition-all duration-300 flex items-center justify-center p-3 border border-teal-300/10 bg-teal-400/10 rounded-full"
+        >
+          <Instagram className="size-6 stroke-teal-500" />
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const closeMenuBtn = document.getElementById("close-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuBackdrop = document.getElementById("menu-backdrop");
+  const menuContainer = document.getElementById("menu-container");
+  const hamburgerIcon = document.getElementById("hamburger-icon");
+  const closeIcon = document.getElementById("close-icon");
+
+  function toggleMenu(show: boolean) {
+    if (mobileMenu && menuBackdrop && menuContainer && hamburgerIcon && closeIcon) {
+      if (show) {
+        mobileMenu.classList.remove("invisible");
+        menuBackdrop.classList.add("opacity-100");
+        menuContainer.classList.remove("-translate-x-full");
+        hamburgerIcon.classList.add("scale-0", "-rotate-45");
+        closeIcon.classList.remove("scale-0", "rotate-45");
+        document.body.style.overflow = "hidden";
+      } else {
+        menuBackdrop.classList.remove("opacity-100");
+        menuContainer.classList.add("-translate-x-full");
+        hamburgerIcon.classList.remove("scale-0", "-rotate-45");
+        closeIcon.classList.add("scale-0", "rotate-45");
+        document.body.style.overflow = "auto";
+        
+        // Késleltetett invisible hozzáadása az animáció után
+        setTimeout(() => {
+          mobileMenu.classList.add("invisible");
+        }, 300);
+      }
+    }
+  }
+
+  menuBtn?.addEventListener("click", () => {
+    const isMenuOpen = !mobileMenu?.classList.contains("invisible");
+    toggleMenu(!isMenuOpen);
+  });
+
+  closeMenuBtn?.addEventListener("click", () => {
+    toggleMenu(false);
+  });
+
+  menuBackdrop?.addEventListener("click", () => {
+    toggleMenu(false);
+  });
+</script>

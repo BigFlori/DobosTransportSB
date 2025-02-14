@@ -1,0 +1,65 @@
+---
+interface Props {
+  isOpen: boolean;
+  imageUrl: string;
+  alt: string;
+}
+
+const { isOpen, imageUrl, alt } = Astro.props;
+---
+
+<div 
+  id="imageModal" 
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 opacity-0 pointer-events-none transition-opacity duration-300"
+  data-image-url={imageUrl}
+  data-alt={alt}
+>
+  <div class="relative max-w-7xl mx-auto px-4">
+    <img 
+      src={imageUrl} 
+      alt={alt} 
+      class="max-h-[90vh] w-auto object-contain"
+    />
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('imageModal');
+  const galleryImages = document.querySelectorAll('.gallery-image');
+
+  function openModal(imageUrl: string, alt: string) {
+    if (modal) {
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.setAttribute('data-image-url', imageUrl);
+      modal.setAttribute('data-alt', alt);
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeModal() {
+    if (modal) {
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = 'auto';
+    }
+  }
+
+  galleryImages.forEach(image => {
+    image.addEventListener('click', (e) => {
+      const target = e.currentTarget as HTMLImageElement;
+      openModal(target.src, target.alt);
+    });
+  });
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+</script>

@@ -1,0 +1,183 @@
+---
+import BaseLayout from "../layout/BaseLayout.astro";
+import PhoneSpacer from "../sections/PhoneSpacer.astro";
+import Check from "../icons/Check.astro";
+---
+
+<BaseLayout title="Bikázás - Dobos Transport" description="Professzionális bikázási szolgáltatás">
+  <section class="relative w-full min-h-[60vh] flex items-center justify-center">
+    <div class="absolute inset-0 w-full h-full">
+      <img 
+        src="/horizontal.webp" 
+        alt="Bikázás szolgáltatás" 
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
+    </div>
+
+    <div class="relative container mx-auto px-4 py-20">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 uppercase">Bikázás</h1>
+        <p class="text-xl text-gray-300">BIKÁZÁS GARANCIÁVAL 0-24 ÓRÁBAN BUDAPEST ÉS PEST MEGYE TERÜLETÉN!</p>
+      </div>
+    </div>
+  </section>
+
+  <PhoneSpacer />
+  <section class="relative py-20 overflow-hidden">
+    <!-- Lágy fények -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-teal-500/20 rounded-full blur-[150px]"></div>
+      <div class="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-teal-500/20 rounded-full blur-[150px]"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-10">
+          <div class="space-y-8">
+            <h2 class="text-3xl font-bold text-white uppercase">Hogyan kell bikázni?</h2>
+            <div class="space-y-4 text-gray-300">
+              <ul class="space-y-4">
+                <li class="flex items-start gap-2">
+                  <Check className="size-6 stroke-teal-500 mt-1" />
+                  <span>Először is a <span class="font-bold text-white">gyártó műszaki szabályzata</span> alapján határozza meg a jármű elektromos rendszerét.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <Check className="size-6 stroke-teal-500 mt-1" />
+                  <span>Majd biztosítsa, hogy a bikázó készülék a <span class="font-bold text-white">megfelelő feszültséget</span> bocsájtsa ki. Ez lehet 12V vagy 24V.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <Check className="size-6 stroke-teal-500 mt-1" />
+                  <span>Bikázás előtt mindenképpen <span class="font-bold text-white">állítsa le a gépjárművet</span> és vegye ki az indító kulcsot.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <Check className="size-6 stroke-teal-500 mt-1" />
+                  <span>Figyeljen rá hogy a segédindítót <span class="font-bold text-white">kikapcsolt állapotban</span> csatlakoztassa.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <img src="/horizontal.webp" alt="Bikázás folyamata" class="w-full h-auto rounded-lg" />
+          </div>
+        </div>
+
+        <div class="mt-10 bg-gray-900/50 border border-teal-300/10 rounded-lg p-8">
+          <h3 class="font-bold text-white mb-4">A segédindító csatlakoztatásának helyes sorrendje:</h3>
+          <ol class="list-decimal list-inside space-y-4 text-gray-300">
+            <li class="flex items-start gap-2">
+              <Check className="size-6 stroke-teal-500 mt-1" />
+              <span>Elsőként csatlakoztassa a <span class="font-bold text-white">piros pozitív kábelsarut</span> az akkumulátor pozitív sarkára.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <Check className="size-6 stroke-teal-500 mt-1" />
+              <span>Ezután csatlakoztassa a gépjármű földelési helyére a <span class="font-bold text-white">fekete negatív kábelsarut</span>.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <Check className="size-6 stroke-teal-500 mt-1" />
+              <span>Ha ezzel megvan, kapcsolja be a bikázó egységet és próbálja meg <span class="font-bold text-white">elindítani a gépjármű motorját</span>.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <Check className="size-6 stroke-teal-500 mt-1" />
+              <span>Amennyiben jól sikerült a bikázás, akkor <span class="font-bold text-white">kapcsolja ki a bikát</span> és az alábbiak szerint figyeljen a szétcsatlakoztatási sorrendre:</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <Check className="size-6 stroke-teal-500 mt-1" />
+              <span>Először a <span class="font-bold text-white">negatív fekete sarut</span> vegye le az akkumulátorról.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <Check className="size-6 stroke-teal-500 mt-1" />
+              <span>Ezt követően vegye le a <span class="font-bold text-white">pozitív piros sarut</span> is az akkumulátorról.</span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="mt-20">
+          <h2 class="text-3xl font-bold text-white mb-8 uppercase">Bikázás előtti jó tanács</h2>
+          <div class="grid lg:grid-cols-2 gap-10">
+            <div class="space-y-4 text-gray-300">
+              <p>
+                Az autó bikázás a régebbi típusú járműveknél egy egyszerű bika kábellel is megoldható volt. Az <span class="font-bold text-white">új típusú járművek érzékeny elektronikája</span> már nem biztos, hogy elviselnének egy túlfeszülést a kábeles indítás, bikázás közben fellépő túlfeszültségből adódóan.
+              </p>
+              <p>
+                Ha a bikázást nem egy <span class="font-bold text-white">megfelelő bikázó készülékkel</span> végzi előfordulhat, hogy a hirtelen betáplált, szabályozatlan feszültség következtében a keletkezett gázok szikrát kapva berobbannak, szó szerint felrobbantva az akkumulátort.
+              </p>
+              <p>
+                Így a rosszul végrehajtott külső indítás következtében akár <span class="font-bold text-white">milliós károk</span> is keletkezhetnek a gépjármű elektromos rendszerében!
+              </p>
+            </div>
+            <div>
+              <img src="/horizontal.webp" alt="Bikázás előtti tanácsok" class="w-full h-auto rounded-lg" />
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-20">
+          <h2 class="text-3xl font-bold text-white mb-8 uppercase">Ha lemerült az akkumulátor, ezt ne tegye soha!!</h2>
+          <div class="grid lg:grid-cols-2 gap-10">
+            <div class="space-y-4 text-gray-300">
+              <p>
+                Sokan úgy vélik, hogyha lemerült az autóban az akkumulátor, jó módszer lehet a jármű <span class="font-bold text-white">betolása vagy egy vontatókötéllel történő behúzása</span>.
+              </p>
+              <p>
+                Ez a rossz döntés <span class="font-bold text-white">végzetes is lehet</span> autója számára!
+              </p>
+              <p>
+                A gyenge akkumulátor ugyanis nem tudja biztosítani a befecskendezéshez szükséges elektromosságot, így a gépjármű behúzása vagy betolása közben a kipufogó rendszerben felgyülemlő nagy mennyiségű üzemanyag berobbanhat. Ez a robbanás tönkre teheti a <span class="font-bold text-white">nagyértékű részecskeszűrőt vagy katalizátort</span>.
+              </p>
+            </div>
+            <div>
+              <img src="/horizontal.webp" alt="Veszélyes helyzetek" class="w-full h-auto rounded-lg" />
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-20">
+          <h2 class="text-3xl font-bold text-white mb-8 uppercase">Hibrid autó bikázása</h2>
+          <div class="grid lg:grid-cols-2 gap-10">
+            <div class="space-y-4 text-gray-300">
+              <p class="font-bold text-white">Biztonsága érdekében hívja ügyfélszolgálatunkat!</p>
+              <p>
+                A hagyományos autókhoz hasonlóan <span class="font-bold text-white">hibrid autókat is lehetséges bikázni</span>. A hibrid autók bikázása az erre gyárilag kialakított úgynevezett bikázó ponton lehetséges. Ennek a bikázó pontnak a helye gyártótól függően változhat.
+              </p>
+              <p>
+                Mint minden bikázás előtt a hibrid autók bikázásánál is az első dolog a <span class="font-bold text-white">jármű elektromos rendszerének meghatározása</span>. Ezt a gyártó műszaki szabályzatában találja.
+              </p>
+              <p>
+                Hibrid vagy elektromos autóval <span class="font-bold text-white">TILOS másik autót bikázni</span>, mert túlterhelheti a gépjármű elektromos rendszerét!
+              </p>
+            </div>
+            <div>
+              <img src="/horizontal.webp" alt="Hibrid autó bikázása" class="w-full h-auto rounded-lg" />
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-20">
+          <div class="bg-gray-900/50 border border-teal-300/10 rounded-lg p-8 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4 uppercase">Figyelem!</h2>
+            <p class="text-xl text-gray-300 mb-6">
+              Ha Ön nem biztos abban, hogy szakszerűen el tudja végezni a bikázást,<br>
+              mindenképpen hívjon szakembert!
+            </p>
+            <a 
+              href="tel:+36301297347" 
+              class="inline-block px-8 py-3 bg-teal-500 text-white font-bold rounded-lg hover:bg-teal-400 transition-colors"
+            >
+              +36 30 129 7347
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-20">
+          <div class="bg-gray-900/50 border border-teal-300/10 rounded-lg p-8">
+            <h2 class="text-2xl font-bold text-white mb-4 uppercase text-center">Fontos!</h2>
+            <p class="text-gray-300">
+              Ezeket a kifinomult elektronikai rendszerrel szerelt autókat már <span class="font-bold text-white">nem ajánlatos hagyományos módon bikázó kábellel bikázni</span>, mert a másik jármű akkumulátorából túlra csúcsfeszültséget kaphat a hibrid autó, hogy akár helyrehozhatatlan károkat is okozhat az elektronikai rendszerében!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

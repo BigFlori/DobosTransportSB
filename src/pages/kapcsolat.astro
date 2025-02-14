@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layout/BaseLayout.astro";
+import PhoneSpacer from "../sections/PhoneSpacer.astro";
+import Mail from "../icons/Mail.astro";
+import MapPin from "../icons/MapPin.astro";
+import Phone from "../icons/Phone.astro";
+---
+
+<BaseLayout title="Kapcsolat - Dobos Transport" description="Kapcsolatfelvételi információk">
+  <section class="relative w-full min-h-[60vh] flex items-center justify-center">
+    <div class="absolute inset-0 w-full h-full">
+      <img 
+        src="/horizontal.webp" 
+        alt="Kapcsolat" 
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
+    </div>
+
+    <div class="relative container mx-auto px-4 py-20">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Kapcsolat</h1>
+        <p class="text-xl text-gray-300">Vegye fel velünk a kapcsolatot</p>
+      </div>
+    </div>
+  </section>
+
+  <PhoneSpacer />
+
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-10">
+          <div class="space-y-8">
+            <h2 class="text-3xl font-bold text-white">Elérhetőségeink</h2>
+            <div class="space-y-6">
+              <div class="flex items-center gap-4">
+                <div class="flex items-center justify-center p-3 border border-teal-300/10 bg-teal-400/10 rounded-full">
+                  <Phone className="size-6 stroke-teal-500" />
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">Telefonszám</p>
+                  <a href="tel:+36302508322" class="text-white hover:text-teal-400">+36 30 250 8322</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div class="flex items-center justify-center p-3 border border-teal-300/10 bg-teal-400/10 rounded-full">
+                  <Mail className="size-6 stroke-teal-500" />
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">E-mail cím</p>
+                  <a href="mailto:doboshunor92@gmail.com" class="text-white hover:text-teal-400">doboshunor92@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div class="flex items-center justify-center p-3 border border-teal-300/10 bg-teal-400/10 rounded-full">
+                  <MapPin className="size-6 stroke-teal-500" />
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">Cím</p>
+                  <p class="text-white">9730 Kőszeg, Liszt Ferenc u. 12.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-8">
+            <h2 class="text-3xl font-bold text-white">Nyitvatartás</h2>
+            <div class="space-y-4 text-gray-300">
+              <p class="text-xl font-semibold text-teal-400">0-24 órában elérhető szolgáltatás</p>
+              <p>Az év minden napján, a nap 24 órájában várjuk hívását!</p>
+              <p>Sürgős esetben azonnal indulunk a megadott címre.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

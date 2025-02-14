@@ -1,0 +1,23 @@
+---
+import type { HTMLTag } from "astro/types";
+import Check from "../../icons/Check.astro";
+
+interface Props {
+  isFirst?: boolean;
+  spacing?: "small" | "medium" | "large";
+  Icon?: any;
+  tag?: HTMLTag;
+}
+
+const { isFirst = false, spacing = "medium", Icon = Check, tag: Element = "div" } = Astro.props as Props;
+---
+
+<Element
+  class={`${isFirst ? "border-t border-b" : "border-b"}
+${spacing === "small" ? "p-3" : spacing === "medium" ? "p-4" : "p-6"}
+border-gray-800/50 flex items-center gap-5
+`}
+>
+  <Icon className="size-6 min-h-6 min-w-6 stroke-teal-500" />
+  <slot />
+</Element>

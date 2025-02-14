@@ -1,0 +1,146 @@
+---
+import ChevronDown from "../../icons/ChevronDown.astro";
+
+const homepageUrl = "";
+
+const navMap = [
+  { key: "home", href: "/", text: "Kezdőlap" },
+  {
+    key: "services",
+    href: "#",
+    text: "Szolgáltatások",
+    dropdown: true,
+    items: [
+      { href: "automentes", text: "Autómentés" },
+      { href: "autoszallitas", text: "Autószállítás" },
+      { href: "szallitmanyozas", text: "Szállítmányozás" },
+      { href: "bikazas", text: "Bikázás" },
+      { href: "kerekcsere", text: "Kerékcsere" },
+    ],
+  },
+  { key: "about", href: "rolunk", text: "Rólunk" },
+  { key: "gallery", href: "galeria", text: "Galéria" },
+  { key: "contact", href: "kapcsolat", text: "Kapcsolat" },
+];
+---
+
+{
+  navMap.map(({ href, text, dropdown, items }) => (
+    <li class="relative w-full">
+      {dropdown ? (
+        <div class="w-full">
+          <button
+            class="mobile-services-btn !text-gray-300 inline-flex items-center justify-between w-full hover:!text-white lg:hidden"
+          >
+            {text}
+            <ChevronDown className="size-4 ml-1 transition-transform duration-300 chevron-icon" />
+          </button>
+          <button
+            id="services-dropdown-btn"
+            class="!text-gray-300 hidden lg:inline-flex items-center hover:!text-white"
+          >
+            {text}
+            <ChevronDown className="size-4 ml-1 transition-transform duration-300 chevron-icon" />
+          </button>
+          <div
+            class="mobile-services-content lg:hidden w-full pl-4 mt-2 space-y-2 border-l border-teal-300/10 overflow-hidden max-h-0 transition-all duration-300"
+          >
+            {items.map((item) => (
+              <a
+                href={`/${item.href}`}
+                class="block py-1 text-sm !text-gray-300 hover:!text-white"
+              >
+                {item.text}
+              </a>
+            ))}
+          </div>
+          <div
+            id="services-dropdown"
+            class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-gray-950/95 backdrop-blur-sm border border-teal-300/10 overflow-hidden max-h-0 opacity-0 transition-all duration-300 invisible"
+          >
+            <div class="py-1">
+              {items.map((item) => (
+                <a
+                  href={`/${item.href}`}
+                  class="block px-4 py-2 text-sm !text-gray-300 hover:!text-white hover:bg-teal-500/10"
+                >
+                  {item.text}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <a
+          href={href}
+          class="!text-gray-300 inline-block hover:!text-white lg:after:bg-teal-500 lg:relative lg:after:content-[''] lg:after:block lg:after:w-0 lg:after:h-0.5 lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:transition-all lg:after:duration-300 lg:hover:after:w-full"
+        >
+          {text}
+          <span class="ml-3 md:hidden inline-block">&rarr;</span>
+        </a>
+      )}
+    </li>
+  ))
+}
+
+<script>
+  // Mobil szolgáltatások menü kezelése
+  const mobileServicesBtns = document.querySelectorAll('.mobile-services-btn');
+  
+  mobileServicesBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling.nextElementSibling as HTMLElement;
+      const chevron = btn.querySelector('.chevron-icon');
+      
+      if (content.style.maxHeight) {
+        content.style.maxHeight = '';
+        chevron?.classList.remove('rotate-180');
+      } else {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        chevron?.classList.add('rotate-180');
+      }
+    });
+  });
+
+  // Desktop szolgáltatások menü kezelése
+  const servicesDropdownBtn = document.getElementById('services-dropdown-btn');
+  const servicesDropdown = document.getElementById('services-dropdown');
+  
+  if (servicesDropdownBtn && servicesDropdown) {
+    servicesDropdownBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const chevron = servicesDropdownBtn.querySelector('.chevron-icon');
+      
+      if (servicesDropdown.classList.contains('invisible')) {
+        // Nyitás
+        servicesDropdown.classList.remove('invisible');
+        requestAnimationFrame(() => {
+          servicesDropdown.classList.remove('max-h-0', 'opacity-0');
+          servicesDropdown.classList.add('max-h-[500px]', 'opacity-100');
+          chevron?.classList.add('rotate-180');
+        });
+      } else {
+        // Bezárás
+        servicesDropdown.classList.remove('max-h-[500px]', 'opacity-100');
+        servicesDropdown.classList.add('max-h-0', 'opacity-0');
+        chevron?.classList.remove('rotate-180');
+        setTimeout(() => {
+          servicesDropdown.classList.add('invisible');
+        }, 300);
+      }
+    });
+
+    // Kattintás esemény a dokumentumon a menü bezárásához
+    document.addEventListener('click', (e) => {
+      if (!servicesDropdownBtn.contains(e.target as Node) && !servicesDropdown.contains(e.target as Node)) {
+        servicesDropdown.classList.remove('max-h-[500px]', 'opacity-100');
+        servicesDropdown.classList.add('max-h-0', 'opacity-0');
+        const chevron = servicesDropdownBtn.querySelector('.chevron-icon');
+        chevron?.classList.remove('rotate-180');
+        setTimeout(() => {
+          servicesDropdown.classList.add('invisible');
+        }, 300);
+      }
+    });
+  }
+</script>

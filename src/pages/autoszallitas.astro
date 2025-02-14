@@ -1,0 +1,127 @@
+---
+import BaseLayout from "../layout/BaseLayout.astro";
+import PhoneSpacer from "../sections/PhoneSpacer.astro";
+import Check from "../icons/Check.astro";
+---
+
+<BaseLayout title="Autószállítás - Dobos Transport" description="Professzionális autószállítás szolgáltatás">
+  <section class="relative w-full min-h-[60vh] flex items-center justify-center">
+    <div class="absolute inset-0 w-full h-full">
+      <img 
+        src="/horizontal.webp" 
+        alt="Autószállítás szolgáltatás" 
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
+    </div>
+
+    <div class="relative container mx-auto px-4 py-20">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 uppercase">Autószállítás</h1>
+        <p class="text-xl text-gray-300">AUTÓSZÁLLÍTÁS GARANCIÁVAL 0-24 ÓRÁBAN BUDAPEST ÉS PEST MEGYE TERÜLETÉN!</p>
+      </div>
+    </div>
+  </section>
+
+  <PhoneSpacer />
+
+  <section class="relative py-20 overflow-hidden">
+    <!-- Lágy fények -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-teal-500/20 rounded-full blur-[150px]"></div>
+      <div class="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-teal-500/20 rounded-full blur-[150px]"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-10">
+          <div class="space-y-8">
+            <h2 class="text-3xl font-bold text-white uppercase">Milyen járművel végezzük a szolgáltatásunkat?</h2>
+            <div class="space-y-4 text-gray-300">
+              <p>
+                Autószállító trélereink elektromos csörlőkkel felszereltek, melyek <span class="font-bold text-white">6 tonnás vonóerővel</span> bírnak és mindezek mellett <span class="font-bold text-white">2,2 - 2,6 tonna rakodó súllyal</span> rendelkeznek.
+              </p>
+              <p>
+                Tréleres vontatás esetén a rakfelület <span class="font-bold text-white">2,1 X 5 méter, vagy 2,05 x 8 méter</span>.
+              </p>
+              <p>
+                A sérült járműveket darus autómentő segítségével emeljük ki, ezzel is csökkentve a jármű további sérülését.
+              </p>
+            </div>
+          </div>
+          <div>
+            <img src="/horizontal.webp" alt="Autószállító jármű" class="w-full h-auto rounded-lg" />
+          </div>
+        </div>
+
+        <div class="mt-20">
+          <h2 class="text-3xl font-bold text-white mb-8 uppercase">Miért éri meg minket választani?</h2>
+          <div class="space-y-4 text-gray-300">
+            <ul class="space-y-4">
+              <li class="flex items-start gap-2">
+                <Check className="size-6 stroke-teal-500 mt-1" />
+                <span>Mert <span class="font-bold text-white">0-24 órában, hétvégén és ünnepnapokon</span> is azonnal elérhetőek vagyunk, így minden körülmények között számíthat ránk!</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Check className="size-6 stroke-teal-500 mt-1" />
+                <span>Mert autóját úgy szállítjuk, mintha a <span class="font-bold text-white">sajátunk</span> lenne!</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Check className="size-6 stroke-teal-500 mt-1" />
+                <span>Mert <span class="font-bold text-white">garanciát vállalunk</span> az autószállításra, legyen szó személyautóról vagy teherautóról!</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Check className="size-6 stroke-teal-500 mt-1" />
+                <span>Mert nálunk <span class="font-bold text-white">nincsenek rejtett költségek</span>, az áraink tartalmazzák az összes díjat!</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-20">
+          <h2 class="text-3xl font-bold text-white mb-8 uppercase">Szolgáltatásaink</h2>
+          <div class="grid lg:grid-cols-2 gap-10">
+            <div class="space-y-4 text-gray-300">
+              <ul class="space-y-4">
+                <li class="flex items-start gap-2">
+                  <Check className="size-6 stroke-teal-500 mt-1" />
+                  <span><span class="font-bold text-white">Személyautó szállítás</span> - minden típusú személygépjármű biztonságos szállítása</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <Check className="size-6 stroke-teal-500 mt-1" />
+                  <span><span class="font-bold text-white">Teherautó szállítás</span> - nagyobb járművek professzionális szállítása</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <Check className="size-6 stroke-teal-500 mt-1" />
+                  <span><span class="font-bold text-white">Nemzetközi szállítás</span> - határon túli szállítási szolgáltatások</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <Check className="size-6 stroke-teal-500 mt-1" />
+                  <span><span class="font-bold text-white">Speciális járművek</span> - egyedi igények és különleges járművek szállítása</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <img src="/horizontal.webp" alt="Autószállítási szolgáltatások" class="w-full h-auto rounded-lg" />
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-20">
+          <div class="bg-gray-900/50 border border-teal-300/10 rounded-lg p-8 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4 uppercase">Kérjen ajánlatot most!</h2>
+            <p class="text-xl text-gray-300 mb-6">
+              Hívjon minket és kérjen személyre szabott árajánlatot autószállítási szolgáltatásunkra!
+            </p>
+            <a 
+              href="tel:+36301297347" 
+              class="inline-block px-8 py-3 bg-teal-500 text-white font-bold rounded-lg hover:bg-teal-400 transition-colors"
+            >
+              +36 30 129 7347
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

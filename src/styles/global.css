@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-family: "Sora", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.underline-wavy {
+  @apply underline decoration-wavy decoration-[#0fe6cd] decoration-auto underline-offset-[9px];
+}
+
+a:not([data-no-style]) {
+  @apply text-indigo-400 hover:text-white hover:drop-shadow-[0px_0px_22px_rgba(0,255,204,1)] transition-all duration-300;
+}
+
+.sora {
+  font-family: "Sora", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.sora-light {
+  font-family: "Sora", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sacramento-regular {
+  font-family: "Sacramento", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes text-slide {
+  0%,
+  16% {
+    transform: translateY(0%);
+  }
+  20%,
+  36% {
+    transform: translateY(-16.66%);
+  }
+  40%,
+  56% {
+    transform: translateY(-33.33%);
+  }
+  60%,
+  76% {
+    transform: translateY(-50%);
+  }
+  80%,
+  96% {
+    transform: translateY(-66.66%);
+  }
+  100% {
+    transform: translateY(-83.33%);
+  }
+}
+
+.text-slide {
+  animation: text-slide 12.5s cubic-bezier(0.83, 0, 0.17, 1) infinite;
+}
+
+.section-bg {
+  background-image: url("./desktop-section-bg.png");
+  background-position: center;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .section-bg {
+    background-image: url("./mobile-section-bg.png");
+  }
+}
