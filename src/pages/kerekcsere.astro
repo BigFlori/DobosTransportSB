@@ -2,23 +2,22 @@
 import BaseLayout from "../layout/BaseLayout.astro";
 import PhoneSpacer from "../sections/PhoneSpacer.astro";
 import Check from "../icons/Check.astro";
+import StripedRow from "../components/striped-row/StripedRow.astro";
+import Card from "../components/card/Card.astro";
+import LinkButton from "../components/button/LinkButton.astro";
 ---
 
 <BaseLayout title="Kerékcsere - Dobos Transport" description="Professzionális kerékcsere szolgáltatás">
   <section class="relative w-full min-h-[60vh] flex items-center justify-center">
     <div class="absolute inset-0 w-full h-full">
-      <img 
-        src="/horizontal.webp" 
-        alt="Kerékcsere szolgáltatás" 
-        class="w-full h-full object-cover"
-      />
+      <img src="/horizontal.webp" alt="Kerékcsere szolgáltatás" class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
     </div>
 
     <div class="relative container mx-auto px-4 py-20">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 uppercase">Kerékcsere</h1>
-        <p class="text-xl text-gray-300">MOBIL KERÉKCSERE SZOLGÁLTATÁS 0-24 ÓRÁBAN BUDAPEST ÉS PEST MEGYE TERÜLETÉN!</p>
+        <p class="text-xl uppercase">Mobil kerékcsere szolgáltatás 0-24 órában az egész ország területén!</p>
       </div>
     </div>
   </section>
@@ -27,9 +26,10 @@ import Check from "../icons/Check.astro";
 
   <section class="relative py-20 overflow-hidden">
     <!-- Lágy fények -->
-    <div class="absolute inset-0 pointer-events-none">
-      <div class="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-teal-500/20 rounded-full blur-[150px]"></div>
-      <div class="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-teal-500/20 rounded-full blur-[150px]"></div>
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-0 left-0 w-full md:w-1/2 aspect-square bg-teal-500/20 rounded-full blur-[150px]"></div>
+      <div class="absolute bottom-0 right-0 w-full md:w-1/2 aspect-square bg-teal-500/20 rounded-full blur-[150px]">
+      </div>
     </div>
 
     <div class="container mx-auto px-4 relative">
@@ -37,55 +37,48 @@ import Check from "../icons/Check.astro";
         <div class="grid lg:grid-cols-2 gap-10">
           <div class="space-y-8">
             <h2 class="text-3xl font-bold text-white uppercase">Professzionális kerékcsere szolgáltatás</h2>
-            <div class="space-y-4 text-gray-300">
+            <div class="space-y-4">
               <p>
-                Defekt esetén gyors és szakszerű segítséget nyújtunk a helyszínen. Tapasztalt szakembereink a legmodernebb szerszámokkal felszerelve érkeznek, hogy minimális várakozási idővel megoldják a problémát.
+                Defekt esetén gyors és szakszerű segítséget nyújtunk a helyszínen. Tapasztalt szakembereink a
+                legmodernebb szerszámokkal felszerelve érkeznek, hogy minimális várakozási idővel megoldják a problémát.
               </p>
-              <p>
-                Szolgáltatásunk előnyei:
-              </p>
-              <ul class="space-y-4">
-                <li class="flex items-start gap-2">
-                  <Check className="size-6 stroke-teal-500 mt-1" />
+              <p>Szolgáltatásunk előnyei:</p>
+              <ul>
+                <StripedRow isFirst tag="li" spacing="small">
                   <span><span class="font-bold text-white">Gyors kiszállás</span> a helyszínre</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <Check className="size-6 stroke-teal-500 mt-1" />
+                </StripedRow>
+                <StripedRow tag="li" spacing="small">
                   <span><span class="font-bold text-white">Professzionális szerszámok</span> és felszerelés</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <Check className="size-6 stroke-teal-500 mt-1" />
+                </StripedRow>
+                <StripedRow tag="li" spacing="small">
                   <span><span class="font-bold text-white">Szakképzett személyzet</span> minden autótípushoz</span>
-                </li>
+                </StripedRow>
               </ul>
             </div>
           </div>
           <div>
-            <img src="/horizontal.webp" alt="Kerékcsere szolgáltatás" class="w-full h-auto rounded-lg" />
+            <img src="/vertical.webp" alt="Kerékcsere szolgáltatás" class="w-full h-auto rounded-lg" />
           </div>
         </div>
 
         <div class="mt-20">
           <h2 class="text-3xl font-bold text-white mb-8 uppercase">Mikor van szükség kerékcsere szolgáltatásra?</h2>
           <div class="grid lg:grid-cols-2 gap-10">
-            <div class="space-y-4 text-gray-300">
-              <ul class="space-y-4">
-                <li class="flex items-start gap-2">
-                  <Check className="size-6 stroke-teal-500 mt-1" />
+            <div class="space-y-4">
+              <ul>
+                <StripedRow isFirst tag="li" spacing="small">
                   <span><span class="font-bold text-white">Defekt esetén</span> - azonnali segítség a helyszínen</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <Check className="size-6 stroke-teal-500 mt-1" />
-                  <span><span class="font-bold text-white">Szezonális kerékcsere</span> - nyári/téli gumik cseréje</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <Check className="size-6 stroke-teal-500 mt-1" />
+                </StripedRow>
+                <StripedRow tag="li" spacing="small">
+                  <span><span class="font-bold text-white">Szezonális kerékcsere</span> - nyári/téli gumik cseréje</span
+                  >
+                </StripedRow>
+                <StripedRow tag="li" spacing="small">
                   <span><span class="font-bold text-white">Kopott vagy sérült gumiabroncs</span> esetén</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <Check className="size-6 stroke-teal-500 mt-1" />
+                </StripedRow>
+                <StripedRow tag="li" spacing="small">
                   <span>Biztonsági ellenőrzés során észlelt <span class="font-bold text-white">problémák</span></span>
-                </li>
+                </StripedRow>
               </ul>
             </div>
             <div>
@@ -94,62 +87,49 @@ import Check from "../icons/Check.astro";
           </div>
         </div>
 
-        <div class="mt-20">
-          <div class="bg-gray-900/50 border border-teal-300/10 rounded-lg p-8">
-            <h2 class="text-2xl font-bold text-white mb-4 uppercase text-center">Fontos tudnivalók</h2>
-            <div class="grid lg:grid-cols-2 gap-8 text-gray-300">
-              <div>
-                <h3 class="font-bold text-white mb-2">Amit biztosítunk:</h3>
-                <ul class="space-y-4">
-                  <li class="flex items-start gap-2">
-                    <Check className="size-6 stroke-teal-500 mt-1" />
-                    <span><span class="font-bold text-white">Professzionális szerszámok</span> és felszerelés</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <Check className="size-6 stroke-teal-500 mt-1" />
-                    <span><span class="font-bold text-white">Szakértő személyzet</span> minden típushoz</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <Check className="size-6 stroke-teal-500 mt-1" />
-                    <span><span class="font-bold text-white">Gyors kiszállás</span> a helyszínre</span>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 class="font-bold text-white mb-2">Amit ellenőrzünk:</h3>
-                <ul class="space-y-4">
-                  <li class="flex items-start gap-2">
-                    <Check className="size-6 stroke-teal-500 mt-1" />
-                    <span><span class="font-bold text-white">Keréknyomás</span> beállítása</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <Check className="size-6 stroke-teal-500 mt-1" />
-                    <span><span class="font-bold text-white">Csavarok állapota</span> és meghúzása</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <Check className="size-6 stroke-teal-500 mt-1" />
-                    <span><span class="font-bold text-white">Gumik általános állapota</span></span>
-                  </li>
-                </ul>
-              </div>
+        <Card hideSpacerLines applyToContainer="space-y-6 pt-8 mt-10">
+          <h2 slot="heading" class="uppercase text-white font-bold text-2xl text-center">Fontos tudnivalók</h2>
+          <div slot="body" class="grid lg:grid-cols-2 gap-8">
+            <div class="space-y-2">
+              <h3 class="text-white text-lg font-bold">Amit biztosítunk:</h3>
+              <ul>
+                <StripedRow isFirst tag="li" spacing="small">
+                  <span><span class="font-bold text-white">Professzionális szerszámok</span> és felszerelés</span>
+                </StripedRow>
+                <StripedRow tag="li" spacing="small">
+                  <span><span class="font-bold text-white">Szakértő személyzet</span> minden típushoz</span>
+                </StripedRow>
+                <StripedRow tag="li" spacing="small">
+                  <span><span class="font-bold text-white">Gyors kiszállás</span> a helyszínre</span>
+                </StripedRow>
+              </ul>
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-white text-lg font-bold">Amit ellenőrzünk:</h3>
+              <ul>
+                <StripedRow isFirst tag="li" spacing="small">
+                  <span><span class="font-bold text-white">Keréknyomás</span> beállítása</span>
+                </StripedRow>
+                <StripedRow tag="li" spacing="small">
+                  <span><span class="font-bold text-white">Csavarok állapota</span> és meghúzása</span>
+                </StripedRow>
+                <StripedRow tag="li" spacing="small">
+                  <span class="font-bold text-white">Gumik általános állapota</span>
+                </StripedRow>
+              </ul>
             </div>
           </div>
-        </div>
-
-        <div class="mt-20">
-          <div class="bg-gray-900/50 border border-teal-300/10 rounded-lg p-8 text-center">
-            <h2 class="text-2xl font-bold text-white mb-4 uppercase">Kerékcsere szolgáltatás rendelése</h2>
-            <p class="text-xl text-gray-300 mb-6">
-              Hívjon minket most és szakembereink rövid időn belül a helyszínre érkeznek!
-            </p>
-            <a 
-              href="tel:+36301297347" 
-              class="inline-block px-8 py-3 bg-teal-500 text-white font-bold rounded-lg hover:bg-teal-400 transition-colors"
-            >
-              +36 30 129 7347
-            </a>
+        </Card>
+        
+        <Card hideSpacerLines applyToContainer="space-y-5 py-8 mt-10">
+          <h2 slot="heading" class="text-xl md:text-2xl text-white text-center uppercase">Kerékcsere szolgáltatás rendelése</h2>
+          <p slot="body" class="text-lg text-center">
+            Hívjon minket most és szakembereink rövid időn belül a helyszínre érkeznek!
+          </p>
+          <div slot="footer" class="flex justify-center w-full">
+            <LinkButton href="tel:+36301297347">+36 30 250 8322</LinkButton>
           </div>
-        </div>
+        </Card>
       </div>
     </div>
   </section>

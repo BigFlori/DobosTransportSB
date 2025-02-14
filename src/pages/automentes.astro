@@ -2,6 +2,7 @@
 import BaseLayout from "../layout/BaseLayout.astro";
 import PhoneSpacer from "../sections/PhoneSpacer.astro";
 import Check from "../icons/Check.astro";
+import StripedRow from "../components/striped-row/StripedRow.astro";
 ---
 
 <BaseLayout title="Autómentés - Dobos Transport" description="Professzionális autómentés szolgáltatás">
@@ -18,7 +19,7 @@ import Check from "../icons/Check.astro";
     <div class="relative container mx-auto px-4 py-20">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 uppercase">Autómentés</h1>
-        <p class="text-xl text-gray-300">AUTÓMENTÉS GARANCIÁVAL 0-24 ÓRÁBAN BUDAPEST ÉS PEST MEGYE TERÜLETÉN!</p>
+        <p class="text-xl text-gray-300 uppercase">Autómentés garanciával 0-24 órában az egész ország területén!</p>
       </div>
     </div>
   </section>
@@ -27,12 +28,12 @@ import Check from "../icons/Check.astro";
 
   <section class="relative py-20 overflow-hidden">
     <!-- Lágy fények -->
-    <div class="absolute inset-0 pointer-events-none">
-      <div class="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-teal-500/20 rounded-full blur-[150px]"></div>
-      <div class="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-teal-500/20 rounded-full blur-[150px]"></div>
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-0 left-0 w-full md:w-1/2 aspect-square bg-teal-500/20 rounded-full blur-[150px]"></div>
+      <div class="absolute bottom-0 right-0 w-full md:w-1/2 aspect-square bg-teal-500/20 rounded-full blur-[150px]"></div>
     </div>
 
-    <div class="container mx-auto px-4 relative">
+    <div class="container max-w-7xl mx-auto px-4 relative">
       <div class="max-w-4xl mx-auto">
         <div class="grid lg:grid-cols-2 gap-10">
           <div class="space-y-8">
@@ -57,19 +58,16 @@ import Check from "../icons/Check.astro";
         <div class="mt-20">
           <h2 class="text-3xl font-bold text-white mb-8 uppercase">Miért éri meg minket választani?</h2>
           <div class="space-y-4 text-gray-300">
-            <ul class="space-y-4">
-              <li class="flex items-start gap-2">
-                <Check className="size-6 stroke-teal-500 mt-1" />
-                <span>Mert <span class="font-bold text-white">0-24 órában, hétvégén és ünnepnapokon</span> is azonnal elérhetőek vagyunk, így minden körülmények között számíthat ránk!</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <Check className="size-6 stroke-teal-500 mt-1" />
-                <span>Mert autóját úgy szállítjuk, mintha a <span class="font-bold text-white">sajátunk</span> lenne!</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <Check className="size-6 stroke-teal-500 mt-1" />
-                <span>Mert <span class="font-bold text-white">garanciát vállalunk</span> az autószállításra, legyen szó személyautóról vagy teherautóról!</span>
-              </li>
+            <ul>
+              <StripedRow tag="li" isFirst spacing="medium">
+                <p><span class="font-bold text-white">25 éves tapasztalat</span> - több évtizedes tapasztalattal rendelkezünk az autómentés területén.</p>
+              </StripedRow>
+              <StripedRow tag="li" spacing="medium">
+                <p><span class="font-bold text-white">Rövid érkezési idő</span> - rendkívül gyorsak vagyunk, nagyon rövid idő alatt a helyszínre érkezünk.</p>
+              </StripedRow>
+              <StripedRow tag="li" spacing="medium">
+                <p><span class="font-bold text-white">Nincsenek rejtett költségek</span> - nálunk nincs felszámítva külön autópálya és útdíj.</p>
+              </StripedRow>
             </ul>
           </div>
         </div>
@@ -77,39 +75,32 @@ import Check from "../icons/Check.astro";
         <div class="mt-20">
           <h2 class="text-3xl font-bold text-white mb-8 uppercase">Mikor válhat szükségessé?</h2>
           <div class="space-y-4 text-gray-300">
-            <ul class="space-y-4">
-              <li class="flex items-start gap-2">
-                <Check className="size-6 stroke-teal-500 mt-1" />
-                <span>ha bármilyen jellegű <span class="font-bold text-white">motorhibát</span> észlel és nem indul az autója.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <Check className="size-6 stroke-teal-500 mt-1" />
-                <span>ha meghibásodott a <span class="font-bold text-white">sebességváltó</span>.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <Check className="size-6 stroke-teal-500 mt-1" />
-                <span>ha felforrt a <span class="font-bold text-white">hűtővíz</span>.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <Check className="size-6 stroke-teal-500 mt-1" />
-                <span>ha lemerült az <span class="font-bold text-white">akkumulátor</span>.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <Check className="size-6 stroke-teal-500 mt-1" />
-                <span>ha a műszerfalon bármely okból folyamatosan világít a <span class="font-bold text-white">motorkontroll</span> lámpa.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <Check className="size-6 stroke-teal-500 mt-1" />
-                <span>ha <span class="font-bold text-white">durdefektje</span> van, vagy lapos valamelyik kerék.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <Check className="size-6 stroke-teal-500 mt-1" />
-                <span>ha kifogyott az <span class="font-bold text-white">üzemanyag</span>.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <Check className="size-6 stroke-teal-500 mt-1" />
-                <span>ha <span class="font-bold text-white">balesetet szenvedett</span> vagy karambolozott egy másik járművel.</span>
-              </li>
+            <ul>
+              <StripedRow tag="li" isFirst spacing="small">
+                <p>ha bármilyen jellegű <span class="font-bold text-white">motorhibát</span> észlel és nem indul az autója.</p>
+              </StripedRow>
+              <StripedRow tag="li" spacing="small">
+                <p>ha meghibásodott a <span class="font-bold text-white">sebességváltó</span>.</p>
+              </StripedRow>
+              <StripedRow tag="li" spacing="small">
+                <p>ha felforrt a <span class="font-bold text-white">hűtővíz</span>.</p>
+              </StripedRow>
+              <StripedRow tag="li" spacing="small">
+                <p>ha lemerült az <span class="font-bold text-white">akkumulátor</span>.</p>
+              </StripedRow>
+              <StripedRow tag="li" spacing="small">
+                <p>ha a műszerfalon bármely okból folyamatosan világít a <span class="font-bold text-white">motorkontroll</span> lámpa.</p>
+              </StripedRow>
+              <StripedRow tag="li" spacing="small">
+                <p>ha <span class="font-bold text-white">durdefektje</span> van, vagy lapos valamelyik kerék.</p>
+              </StripedRow>
+              <StripedRow tag="li" spacing="small">
+                <p>ha kifogyott az <span class="font-bold text-white">üzemanyag</span>.</p>
+              </StripedRow>
+              <StripedRow tag="li" spacing="small">
+                <p>ha <span class="font-bold text-white">balesetet szenvedett</span> vagy karambolozott egy másik járművel.</p>
+              </StripedRow>
+              
             </ul>
           </div>
         </div>
@@ -120,19 +111,16 @@ import Check from "../icons/Check.astro";
             <div class="space-y-4 text-gray-300">
               <p>Néhány esetben akár a helyszínen is orvosolható az autó hibája.</p>
               <p class="font-bold text-white">Ilyen probléma lehet például ha:</p>
-              <ul class="space-y-4">
-                <li class="flex items-start gap-2">
-                  <Check className="size-6 stroke-teal-500 mt-1" />
-                  <span><span class="font-bold text-white">Defekt esetén</span> - sokszor nincs kéznél megfelelő szerszám.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <Check className="size-6 stroke-teal-500 mt-1" />
-                  <span><span class="font-bold text-white">Lemerül az akkumulátor</span> - ha mentőközben lemerül az akkumulátor jól jöhet a gyors segítség.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <Check className="size-6 stroke-teal-500 mt-1" />
-                  <span><span class="font-bold text-white">Kifogyott az üzemanyag</span> - bárkivel előfordulhat, hogy elszámolja magát és már nem ér el a következő benzinkútig, hogy tankoljon. Ilyenkor aranyat ér a gyors segítség.</span>
-                </li>
+              <ul>
+                <StripedRow isFirst spacing="small" tag="li">
+                  <p><span class="font-bold text-white">Defekt esetén</span> - sokszor nincs kéznél megfelelő szerszám.</p>
+                </StripedRow>
+                <StripedRow spacing="small" tag="li">
+                  <p><span class="font-bold text-white">Lemerül az akkumulátor</span> - ha mentőközben lemerül az akkumulátor jól jöhet a gyors segítség.</p>
+                </StripedRow>
+                <StripedRow spacing="small" tag="li">
+                  <p><span class="font-bold text-white">Kifogyott az üzemanyag</span> - bárkivel előfordulhat, hogy elszámolja magát és már nem ér el a következő benzinkútig, hogy tankoljon. Ilyenkor aranyat ér a gyors segítség.</p>
+                </StripedRow>
               </ul>
             </div>
           </div>

@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "../layout/BaseLayout.astro";
 import PhoneSpacer from "../sections/PhoneSpacer.astro";
-import Check from "../icons/Check.astro";
+import StripedRow from "../components/striped-row/StripedRow.astro";
+import Card from "../components/card/Card.astro";
+import LinkButton from "../components/button/LinkButton.astro";
 ---
 
 <BaseLayout title="Szállítmányozás - Dobos Transport" description="Professzionális szállítmányozási szolgáltatások">
@@ -18,7 +20,7 @@ import Check from "../icons/Check.astro";
     <div class="relative container mx-auto px-4 py-20">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 uppercase">Szállítmányozás</h1>
-        <p class="text-xl text-gray-300">SZÁLLÍTMÁNYOZÁS GARANCIÁVAL 0-24 ÓRÁBAN BUDAPEST ÉS PEST MEGYE TERÜLETÉN!</p>
+        <p class="text-xl uppercase">Szállítmányozás garanciával 0-24 órában az egész ország területén!</p>
       </div>
     </div>
   </section>
@@ -27,9 +29,9 @@ import Check from "../icons/Check.astro";
 
   <section class="relative py-20 overflow-hidden">
     <!-- Lágy fények -->
-    <div class="absolute inset-0 pointer-events-none">
-      <div class="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-teal-500/20 rounded-full blur-[150px]"></div>
-      <div class="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-teal-500/20 rounded-full blur-[150px]"></div>
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-0 left-0 w-full md:w-1/2 aspect-square bg-teal-500/20 rounded-full blur-[150px]"></div>
+      <div class="absolute bottom-0 right-0 w-full md:w-1/2 aspect-square bg-teal-500/20 rounded-full blur-[150px]"></div>
     </div>
 
     <div class="container mx-auto px-4 relative">
@@ -44,69 +46,56 @@ import Check from "../icons/Check.astro";
               <p>
                 Szolgáltatásaink között megtalálható:
               </p>
-              <ul class="space-y-4">
-                <li class="flex items-start gap-2">
-                  <Check className="size-6 stroke-teal-500 mt-1" />
+              <ul>
+                <StripedRow isFirst tag="li" spacing="small">
                   <span><span class="font-bold text-white">Belföldi szállítmányozás</span> - az ország egész területén</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <Check className="size-6 stroke-teal-500 mt-1" />
+                </StripedRow>
+                <StripedRow tag="li" spacing="small">
                   <span><span class="font-bold text-white">Nemzetközi szállítmányozás</span> - Európa-szerte</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <Check className="size-6 stroke-teal-500 mt-1" />
+                </StripedRow>
+                <StripedRow tag="li" spacing="small">
                   <span><span class="font-bold text-white">Express szállítás</span> - sürgős esetekre</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <Check className="size-6 stroke-teal-500 mt-1" />
+                </StripedRow>
+                <StripedRow tag="li" spacing="small">
                   <span><span class="font-bold text-white">Túlméretes szállítmányok</span> - speciális rakományok</span>
-                </li>
+                </StripedRow>
               </ul>
             </div>
           </div>
           <div>
-            <img src="/horizontal.webp" alt="Szállítmányozási szolgáltatások" class="w-full h-auto rounded-lg" />
+            <img src="/vertical.webp" alt="Szállítmányozási szolgáltatások" class="w-full h-auto rounded-lg" />
           </div>
         </div>
 
         <div class="mt-20">
           <h2 class="text-3xl font-bold text-white mb-8 uppercase">Miért válasszon minket?</h2>
           <div class="space-y-4 text-gray-300">
-            <ul class="space-y-4">
-              <li class="flex items-start gap-2">
-                <Check className="size-6 stroke-teal-500 mt-1" />
+            <ul>
+              <StripedRow isFirst tag="li" spacing="medium">
                 <span><span class="font-bold text-white">Több mint 25 éves</span> szakmai tapasztalat</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <Check className="size-6 stroke-teal-500 mt-1" />
+              </StripedRow>
+              <StripedRow tag="li" spacing="medium">
                 <span><span class="font-bold text-white">Modern járműpark</span> és képzett, megbízható sofőrök</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <Check className="size-6 stroke-teal-500 mt-1" />
+              </StripedRow>
+              <StripedRow tag="li" spacing="medium">
                 <span><span class="font-bold text-white">Versenyképes árak</span> és rugalmas szolgáltatások</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <Check className="size-6 stroke-teal-500 mt-1" />
+              </StripedRow>
+              <StripedRow tag="li" spacing="medium">
                 <span><span class="font-bold text-white">24/7 rendelkezésre állás</span> és teljes körű biztosítás</span>
-              </li>
+              </StripedRow>
             </ul>
           </div>
         </div>
 
-        <div class="mt-20">
-          <div class="bg-gray-900/50 border border-teal-300/10 rounded-lg p-8 text-center">
-            <h2 class="text-2xl font-bold text-white mb-4 uppercase">Kérjen ajánlatot most!</h2>
-            <p class="text-xl text-gray-300 mb-6">
-              Szakértő csapatunk készséggel áll rendelkezésére a megfelelő szállítmányozási megoldás kiválasztásában.
-            </p>
-            <a 
-              href="tel:+36301297347" 
-              class="inline-block px-8 py-3 bg-teal-500 text-white font-bold rounded-lg hover:bg-teal-400 transition-colors"
-            >
-              +36 30 129 7347
-            </a>
+        <Card hideSpacerLines applyToContainer="space-y-5 py-8 mt-20">
+          <h2 slot="heading" class="text-xl md:text-2xl text-white text-center uppercase">Kérjen ajánlatot most!</h2>
+          <p slot="body" class="text-lg text-center">
+            Szakértő csapatunk készséggel áll rendelkezésére a megfelelő szállítmányozási megoldás kiválasztásában.
+          </p>
+          <div slot="footer" class="flex justify-center w-full">
+            <LinkButton href="tel:+36301297347">+36 30 250 8322</LinkButton>
           </div>
-        </div>
+        </Card>
       </div>
     </div>
   </section>

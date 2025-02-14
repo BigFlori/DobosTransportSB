@@ -1,11 +1,25 @@
 ---
 interface Props {
     href: string
+    applyToContainer?: string
+    transparency?: 'high' | 'medium' | 'low'
 }
 
-const { href } = Astro.props;
+const { href, applyToContainer, transparency = 'high' } = Astro.props;
+
+const transparencyStyles = {
+    high: 'bg-teal-400/10 border-teal-300/10 hover:bg-teal-500/20',
+    medium: 'bg-teal-400/20 border-teal-300/20 hover:bg-teal-500/30',
+    low: 'bg-teal-400/30 border-teal-300/30 hover:bg-teal-500/40'
+};
+
+const buttonStyle = transparencyStyles[transparency];
 ---
 
-<a href={href} class="cursor-pointer inline-block px-4 py-2 text-white bg-teal-400/10 border border-teal-300/10 rounded hover:bg-teal-500/20 transition duration-300 ease-in-out" data-no-style>
+<a 
+    href={href} 
+    class={`cursor-pointer inline-block px-4 py-2 text-white border rounded transition duration-300 ease-in-out ${buttonStyle} ${applyToContainer}`} 
+    data-no-style
+>
     <slot />
 </a>

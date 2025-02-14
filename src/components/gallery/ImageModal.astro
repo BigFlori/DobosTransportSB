@@ -18,8 +18,12 @@ const { isOpen, imageUrl, alt } = Astro.props;
     <img 
       src={imageUrl} 
       alt={alt} 
-      class="max-h-[90vh] w-auto object-contain"
+      class="max-h-[90vh] w-auto object-contain opacity-0 transition-opacity duration-300"
     />
+    <!-- Loading spinner -->
+    <div class="absolute inset-0 flex items-center justify-center loading-spinner">
+      <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
+    </div>
   </div>
 </div>
 
@@ -29,15 +33,36 @@ const { isOpen, imageUrl, alt } = Astro.props;
 
   function openModal(imageUrl: string, alt: string) {
     if (modal) {
+      const modalImg = modal.querySelector('img');
+      const loadingSpinner = modal.querySelector('.loading-spinner');
+      
+      if (modalImg && loadingSpinner) {
+        // Hide the image and show loading spinner
+        modalImg.classList.add('opacity-0');
+        loadingSpinner.classList.remove('hidden');
+        
+        // Set new image source
+        modalImg.src = imageUrl;
+        modalImg.alt = alt;
+        
+        // When the new image is loaded
+        modalImg.onload = () => {
+          modalImg.classList.remove('opacity-0');
+          loadingSpinner.classList.add('hidden');
+        };
+      }
+      
       modal.classList.remove('opacity-0', 'pointer-events-none');
-      modal.setAttribute('data-image-url', imageUrl);
-      modal.setAttribute('data-alt', alt);
       document.body.style.overflow = 'hidden';
     }
   }
 
   function closeModal() {
     if (modal) {
+      const modalImg = modal.querySelector('img');
+      if (modalImg) {
+        modalImg.classList.add('opacity-0');
+      }
       modal.classList.add('opacity-0', 'pointer-events-none');
       document.body.style.overflow = 'auto';
     }
@@ -56,7 +81,6 @@ const { isOpen, imageUrl, alt } = Astro.props;
     }
   });
 
-  // Close on escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeModal();
