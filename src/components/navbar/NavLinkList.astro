@@ -1,10 +1,8 @@
 ---
 import ChevronDown from "../../icons/ChevronDown.astro";
 
-const homepageUrl = "";
-
 const navMap = [
-  { key: "home", href: "/", text: "Kezdőlap" },
+  { key: "home", href: "", text: "Kezdőlap" },
   {
     key: "services",
     href: "#",
@@ -72,7 +70,7 @@ const navMap = [
         </div>
       ) : (
         <a
-          href={href}
+          href={`/${href}`}
           class="!text-gray-300 inline-block hover:!text-white lg:after:bg-teal-500 lg:relative lg:after:content-[''] lg:after:block lg:after:w-0 lg:after:h-0.5 lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:transition-all lg:after:duration-300 lg:hover:after:w-full"
         >
           {text}
