@@ -8,80 +8,90 @@ import Truck from "../icons/Truck.astro";
 ---
 
 <section class="md:pt-[100px] pt-[70px] md:pb-[100px] pb-[70px]" id="services">
-    <div class="container max-w-7xl mx-auto space-y-10">
-      <h2 class="uppercase text-2xl md:text-3xl text-white text-center">
-        Szol<span class="underline-wavy">gáltatás</span>aink
-      </h2>
-      <div class="space-y-5 px-5 2xl:px-0">
-        <div class="grid lg:grid-cols-3 grid-cols-1 gap-5">
-          <Card>
-            <div slot="heading" class="flex items-end gap-5 justify-between">
-              <h3 class="text-xl md:text-2xl text-white">Autómentés</h3>
-              <TowTruck classes="size-10 stroke-teal-500 fill-teal-500" />
-            </div>
-            <p slot="body" class="leading-loose">
-              Professzionális autómentés szolgáltatásunk 0-24 órában elérhető. Gyors kiszállással, modern felszereléssel és szakértő csapattal állunk rendelkezésére az ország egész területén. Biztonságos és megbízható megoldást nyújtunk minden autómentési helyzetben.
-            </p>
-            <div slot="footer" class="flex justify-between w-full">
-              <LinkButton href="tel:+36204492158">Hívjon most!</LinkButton>
-              <LinkButton href="/automentes">Részletek</LinkButton>
-            </div>
-          </Card>
-          <Card>
-            <div slot="heading" class="flex items-end gap-5 justify-between">
-              <h3 class="text-xl md:text-2xl text-white">Autószállítás</h3>
-              <TowTruck classes="size-10 stroke-teal-500 fill-teal-500" />
-            </div>
-            <p slot="body" class="leading-loose">
-              Biztonságos és professzionális autószállítás szolgáltatásunk garantálja járműve sérülésmentes célba juttatását. Modern szállítóeszközeink és tapasztalt sofőrjeink biztosítják a problémamentes szállítást, legyen szó rövid vagy hosszú távról.
-            </p>
-            <div slot="footer" class="flex justify-between w-full">
-              <LinkButton href="tel:+36204492158">Hívjon most!</LinkButton>
-              <LinkButton href="/autoszallitas">Részletek</LinkButton>
-            </div>
-          </Card>
-          <Card>
-            <div slot="heading" class="flex items-end gap-5 justify-between">
-              <h3 class="text-xl md:text-2xl text-white">Szállítmányozás</h3>
-              <Truck className="size-10 stroke-teal-500" />
-            </div>
-            <p slot="body" class="leading-loose">
-              Megbízható szállítmányozási szolgáltatásunk teljes körű logisztikai megoldást kínál. Pontos, időben történő szállítást biztosítunk, versenyképes árakon. Rugalmas és személyre szabott szolgáltatásunkkal minden ügyfelünk igényeit kielégítjük.
-            </p>
-            <div slot="footer" class="flex justify-between w-full">
-              <LinkButton href="tel:+36204492158">Hívjon most!</LinkButton>
-              <LinkButton href="/szallitmanyozas">Részletek</LinkButton>
-            </div>
-          </Card>
-        </div>
-        <div class="grid lg:grid-cols-2 grid-cols-1 gap-5">
-          <Card>
-            <div slot="heading" class="flex items-end gap-5 justify-between">
-              <h3 class="text-xl md:text-2xl text-white">Bikázás</h3>
-              <PlugZap className="size-10 stroke-teal-500" />
-            </div>
-            <p slot="body" class="leading-loose">
-              Gyors és hatékony bikázási szolgáltatásunk segít, ha lemerült az akkumulátora. Szakszerű segítséget nyújtunk a helyszínen, modern eszközökkel és tapasztalt szakembereinkkel. Szolgáltatásunk 0-24 órában elérhető az év minden napján.
-            </p>
-            <div slot="footer" class="flex justify-between w-full">
-              <LinkButton href="tel:+36204492158">Hívjon most!</LinkButton>
-              <LinkButton href="/bikazas">Részletek</LinkButton>
-            </div>
-          </Card>
-          <Card>
-            <div slot="heading" class="flex items-end gap-5 justify-between">
-              <h3 class="text-xl md:text-2xl text-white">Kerékcsere</h3>
-              <Tire className="size-10 stroke-teal-500 fill-teal-500" />
-            </div>
-            <p slot="body" class="leading-loose">
-              Helyszíni kerékcsere szolgáltatásunk gyors megoldást nyújt defekt esetén. Szakembereink a legmodernebb szerszámokkal felszerelve érkeznek a helyszínre, hogy biztonságosan és szakszerűen elvégezzék a kerék cseréjét, minimális várakozási idővel.
-            </p>
-            <div slot="footer" class="flex justify-between w-full">
-              <LinkButton href="tel:+36204492158">Hívjon most!</LinkButton>
-              <LinkButton href="/kerekcsere">Részletek</LinkButton>
-            </div>
-          </Card>
-        </div>
+  <div class="container max-w-7xl mx-auto space-y-10">
+    <h2 class="uppercase text-2xl md:text-3xl text-white text-center">
+      Szol<span class="underline-wavy">gáltatás</span>aink
+    </h2>
+    <div class="space-y-5 px-5 2xl:px-0">
+      <div class="grid lg:grid-cols-3 grid-cols-1 gap-5">
+        <Card>
+          <div slot="heading" class="flex items-end gap-5 justify-between">
+            <h3 class="text-xl md:text-2xl text-white">Autómentés</h3>
+            <TowTruck classes="size-10 stroke-teal-500 fill-teal-500" />
+          </div>
+          <p slot="body" class="leading-loose">
+            Professzionális autómentés szolgáltatásunk 0-24 órában elérhető. Gyors kiszállással, modern felszereléssel
+            és szakértő csapattal állunk rendelkezésére az ország egész területén. Biztonságos és megbízható megoldást
+            nyújtunk minden autómentési helyzetben.
+          </p>
+          <div slot="footer" class="flex justify-between w-full">
+            <LinkButton href="tel:+36204492158">Hívjon most!</LinkButton>
+            <LinkButton href="/automentes">Részletek</LinkButton>
+          </div>
+        </Card>
+        <Card>
+          <div slot="heading" class="flex items-end gap-5 justify-between">
+            <h3 class="text-xl md:text-2xl text-white">Autószállítás</h3>
+            <TowTruck classes="size-10 stroke-teal-500 fill-teal-500" />
+          </div>
+          <p slot="body" class="leading-loose">
+            Biztonságos és professzionális autószállítás szolgáltatásunk garantálja járműve sérülésmentes célba
+            juttatását. Modern szállítóeszközeink biztosítják a problémamentes szállítást,
+            legyen szó rövid vagy hosszú távról.
+          </p>
+          <div slot="footer" class="flex justify-between w-full">
+            <LinkButton href="tel:+36204492158">Hívjon most!</LinkButton>
+            <LinkButton href="/autoszallitas">Részletek</LinkButton>
+          </div>
+        </Card>
+        <Card>
+          <div slot="heading" class="flex items-end gap-5 justify-between">
+            <h3 class="text-xl md:text-2xl text-white">Szállítmányozás</h3>
+            <Truck className="size-10 stroke-teal-500" />
+          </div>
+          <p slot="body" class="leading-loose">
+            Megbízható szállítmányozási szolgáltatásunk teljes körű logisztikai megoldást kínál. Pontos, időben történő
+            szállítást biztosítunk, versenyképes árakon. Rugalmas és személyre szabott szolgáltatásunkkal minden
+            ügyfelünk igényeit kielégítjük.
+          </p>
+          <div slot="footer" class="flex justify-between w-full">
+            <LinkButton href="tel:+36204492158">Hívjon most!</LinkButton>
+            <LinkButton href="/szallitmanyozas">Részletek</LinkButton>
+          </div>
+        </Card>
+      </div>
+      <div class="grid lg:grid-cols-2 grid-cols-1 gap-5">
+        <Card>
+          <div slot="heading" class="flex items-end gap-5 justify-between">
+            <h3 class="text-xl md:text-2xl text-white">Bikázás</h3>
+            <PlugZap className="size-10 stroke-teal-500" />
+          </div>
+          <p slot="body" class="leading-loose">
+            Gyors és hatékony bikázási szolgáltatásunk segít, ha lemerült az akkumulátora. Szakszerű segítséget nyújtunk
+            a helyszínen, modern eszközökkel és tapasztalt szakembereinkkel. Szolgáltatásunk 0-24 órában elérhető az év
+            minden napján.
+          </p>
+          <div slot="footer" class="flex justify-between w-full">
+            <LinkButton href="tel:+36204492158">Hívjon most!</LinkButton>
+            <LinkButton href="/bikazas">Részletek</LinkButton>
+          </div>
+        </Card>
+        <Card>
+          <div slot="heading" class="flex items-end gap-5 justify-between">
+            <h3 class="text-xl md:text-2xl text-white">Kerékcsere</h3>
+            <Tire className="size-10 stroke-teal-500 fill-teal-500" />
+          </div>
+          <p slot="body" class="leading-loose">
+            Helyszíni kerékcsere szolgáltatásunk gyors megoldást nyújt defekt esetén. Szakembereink a legmodernebb
+            szerszámokkal felszerelve érkeznek a helyszínre, hogy biztonságosan és szakszerűen elvégezzék a kerék
+            cseréjét, minimális várakozási idővel.
+          </p>
+          <div slot="footer" class="flex justify-between w-full">
+            <LinkButton href="tel:+36204492158">Hívjon most!</LinkButton>
+            <LinkButton href="/kerekcsere">Részletek</LinkButton>
+          </div>
+        </Card>
       </div>
     </div>
-  </section>
+  </div>
+</section>
