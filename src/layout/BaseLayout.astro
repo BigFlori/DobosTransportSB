@@ -10,6 +10,7 @@ import MapPin from "../icons/MapPin.astro";
 import Phone from "../icons/Phone.astro";
 import "../styles/global.css";
 import BaseHead from "./BaseHead.astro";
+import dtLogo from "../assets/transparent_croped.webp";
 
 interface Props {
   title: string;
@@ -67,8 +68,10 @@ const facebookLink = "https://www.facebook.com/dobos.transport";
       <div class="container mx-auto max-w-7xl py-5 px-5 2xl:px-0">
         <section class="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div class="space-y-10">
-            <div class="leading-loose">
-              <p class="text-6xl">LOGO</p>
+            <div class="leading-loose relative">
+              <div class="w-full flex justify-center items-center mb-5">
+                <img src={dtLogo.src} alt="Dobos Transport logó" class="h-32 w-auto" />
+              </div>
               <a href="/" class="uppercase">dobostransport.hu</a>
               <p class="text-xs text-white">AUTÓMENTŐ, AUTÓMENTÉS, AUTÓSZÁLLÍTÁS, MOTORMENTÉS, BIKÁZÁS</p>
             </div>
@@ -110,7 +113,9 @@ const facebookLink = "https://www.facebook.com/dobos.transport";
                 </div>
                 <div>
                   <p class="text-sm text-gray-400">E-mail cím</p>
-                  <a href="mailto:doboshunor92@gmail.com" class="text-white hover:text-teal-400">doboshunor92@gmail.com</a>
+                  <a href="mailto:doboshunor92@gmail.com" class="text-white hover:text-teal-400"
+                    >doboshunor92@gmail.com</a
+                  >
                 </div>
               </li>
               <li class="flex items-center gap-4">
@@ -131,12 +136,14 @@ const facebookLink = "https://www.facebook.com/dobos.transport";
             </ul>
           </div>
         </section>
-        <section class="flex lg:justify-between lg:items-end mt-10 flex-col lg:flex-row gap-5 items-center justify-center">
+        <section
+          class="flex lg:justify-between lg:items-end mt-10 flex-col lg:flex-row gap-5 items-center justify-center"
+        >
           <ul class="flex justify-center lg:justify-start items-center gap-5">
             <li>
               <button
                 id="scrollToTopBtn"
-                class="hover:drop-shadow-[0px_0px_22px_rgba(0,255,204,1)] transition-all duration-300 flex items-center justify-center p-2 border border-teal-300/10 bg-teal-400/10 rounded-full fixed bottom-5 left-5 opacity-0 bg-gray-950/80"
+                class="hover:drop-shadow-[0px_0px_22px_rgba(0,255,204,1)] transition-all duration-300 flex items-center justify-center p-2 border border-teal-300/10 bg-teal-400/10 rounded-full fixed bottom-5 left-5 opacity-0"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +157,7 @@ const facebookLink = "https://www.facebook.com/dobos.transport";
                   stroke-linejoin="round"
                   class="size-6 stroke-teal-500"
                 >
-                  <path d="m18 15-6-6-6 6"/>
+                  <path d="m18 15-6-6-6 6"></path>
                 </svg>
               </button>
             </li>
@@ -177,32 +184,37 @@ const facebookLink = "https://www.facebook.com/dobos.transport";
         </section>
       </div>
       <div class="border-t border-teal-300/10 py-4 text-center">
-        Made by <a href="https://www.linkedin.com/in/florian-molnar-2323b1252/" target="_blank" referrerpolicy="no-referrer"
-          >Molnar Florian</a
+        Made by <a
+          href="https://www.linkedin.com/in/florian-molnar-2323b1252/"
+          target="_blank"
+          referrerpolicy="no-referrer">Molnar Florian</a
         >
       </div>
     </footer>
 
     <script>
-      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
       let lastScrollTop = 0;
 
-      window.addEventListener('scroll', () => {
+      window.addEventListener("scroll", () => {
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-        if (currentScroll > 300) {
-          scrollToTopBtn.classList.remove('opacity-0');
-          scrollToTopBtn.classList.add('opacity-100');
-        } else {
-          scrollToTopBtn.classList.remove('opacity-100');
-          scrollToTopBtn.classList.add('opacity-0');
+        if (scrollToTopBtn) {
+          if (currentScroll > 300) {
+            scrollToTopBtn.classList.remove("opacity-0");
+            scrollToTopBtn.classList.add("opacity-100");
+          } else {
+            scrollToTopBtn.classList.remove("opacity-100");
+            scrollToTopBtn.classList.add("opacity-0");
+          }
         }
 
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-      });
-
-      scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (scrollToTopBtn) {
+          scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        }
       });
     </script>
   </body>
